@@ -1,72 +1,22 @@
-import express from "express"
+// server.js
+import express from 'express'
 
 const app = express()
-
-const port = 3000
-
+const PORT = 3000
 
 
-app.get("/" , (req , res) => {
-    res.send("<h1> Hello wrole </h1>")
-})
-
-app.get("/jokes" , (req , res) => {
-    
 const jokes = [
-  {
-    id: 1,
-    question: "Why don’t scientists trust atoms?",
-    answer: "Because they make up everything!"
-  },
-  {
-    id: 2,
-    question: "Why did the computer go to therapy?",
-    answer: "Because it had too many bytes of emotional baggage."
-  },
-  {
-    id: 3,
-    question: "Why do programmers prefer dark mode?",
-    answer: "Because light attracts bugs."
-  },
-  {
-    id: 4,
-    question: "What do you call 8 hobbits?",
-    answer: "A hob-byte."
-  },
-  {
-    id: 5,
-    question: "Why was the JavaScript developer sad?",
-    answer: "Because he didn’t Node how to Express himself."
-  },
-  {
-    id: 6,
-    question: "Why do Java developers wear glasses?",
-    answer: "Because they don’t C#."
-  },
-  {
-    id: 7,
-    question: "How many programmers does it take to change a light bulb?",
-    answer: "None, that's a hardware problem."
-  },
-  {
-    id: 8,
-    question: "Why did the developer go broke?",
-    answer: "Because he used up all his cache."
-  },
-  {
-    id: 9,
-    question: "What’s a programmer’s favorite hangout place?",
-    answer: "The Foo Bar."
-  },
-  {
-    id: 10,
-    question: "Why couldn’t the React component understand the joke?",
-    answer: "Because it didn’t get the context."
-  }
-];
-    res.send(jokes)
+  { id: 1, setup: 'Why don’t scientists trust atoms?', punchline: 'Because they make up everything!' },
+  { id: 2, setup: 'Why did the math book look sad?', punchline: 'Because it had too many problems.' },
+  { id: 3, setup: 'Why can’t your nose be 12 inches long?', punchline: 'Because then it would be a foot!' },
+  { id: 4, setup: 'Why did the scarecrow win an award?', punchline: 'Because he was outstanding in his field!' },
+  { id: 5, setup: 'Why don’t skeletons fight each other?', punchline: 'They don’t have the guts.' }
+]
+
+app.get('/api/joke', (req, res) => {
+  res.json(jokes) // Send the array
 })
 
-app.listen(port , () => {
-    console.log(`lestining at port http://localhost:${port}/`)
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`)
 })
